@@ -85,7 +85,7 @@ function displayWeather() {
 
   humidityElement.innerHTML = `<span>humidity</span> ${weather.humidity}%`;
 
-  windSpeedElement.innerHTML = `${weather.speed} <span>km/h</span>`;
+  windSpeedElement.innerHTML = `${weather.speed} <span>mph</span>`;
 }
 
 function celesuiusToFahrenheit(temperature) {
