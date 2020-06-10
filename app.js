@@ -29,7 +29,6 @@ if ("geolocation" in navigator) {
 
 // Set User Position
 function setPosition(position) {
-  console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
 
@@ -64,7 +63,7 @@ function getWeather(latitude, longitude) {
       weather.country = data.sys.country;
       weather.pressure = data.main.pressure;
       weather.humidity = data.main.humidity;
-      weather.speed = data.wind.speed;
+      weather.speed = Math.floor(data.wind.speed * 3.0556);
     })
     .then(function () {
       displayWeather();
@@ -85,14 +84,14 @@ function displayWeather() {
 
   humidityElement.innerHTML = `<span>humidity</span> ${weather.humidity}%`;
 
-  windSpeedElement.innerHTML = `${weather.speed} <span>mph</span>`;
+  windSpeedElement.innerHTML = `${weather.speed} <span>km/h</span>`;
 }
 
 function celesuiusToFahrenheit(temperature) {
   return (temperature * 9) / 5 + 32;
 }
 
-// Change Celesius to Fahrenheit
+// Switch Celesius to Fahrenheit
 tempElement.addEventListener("click", function () {
   if (weather.temperature.value === undefined) return;
 
