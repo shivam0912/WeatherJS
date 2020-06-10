@@ -63,7 +63,7 @@ function getWeather(latitude, longitude) {
       weather.country = data.sys.country;
       weather.pressure = data.main.pressure;
       weather.humidity = data.main.humidity;
-      weather.speed = Math.floor(data.wind.speed * 3.0556);
+      weather.speed = Math.floor(data.wind.speed * 3.6);
     })
     .then(function () {
       displayWeather();
