@@ -1,0 +1,123 @@
+body {
+  background-color: rgba(0, 255, 34, 0.192);
+}
+.container {
+  width: 500px;
+  background-color: #fff;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-top: 100px;
+  padding-bottom: 60px;
+}
+.app-title {
+  background-color: rgba(255, 187, 0, 0.548);
+  width: 500px;
+  height: 50px;
+  border-radius: 10px 10px 0 0;
+}
+.app-title p {
+  text-align: center;
+  padding: 15px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: #293251;
+}
+.notification {
+  background-color: #f8d7da;
+  display: none;
+}
+.notification p {
+  color: black;
+  font-size: 1.2rem;
+  margin: 0;
+  text-align: center;
+  padding: 10px 0;
+}
+.weather-container {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+}
+.weather-icon {
+  width: 500px;
+  height: 128px;
+}
+.weather-icon img {
+  display: block;
+  margin: 0 auto;
+}
+img {
+  width: 120px;
+}
+.temperature-value {
+  width: 500px;
+  height: 60px;
+}
+.temperature-value p {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 3.5rem;
+  cursor: pointer;
+  color: #293251;
+}
+.temperature-value span {
+  color: red;
+  font-size: 2rem;
+}
+
+.temperature-description p {
+  padding: 8px;
+  margin: 10px;
+  color: #293251;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.location {
+  margin: 0;
+  padding: 0;
+}
+.location p {
+  color: #f70a0a;
+  text-align: center;
+  font-size: 2em;
+}
+.wind-pressure p {
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+  font-size: 2em;
+}
+.wind-pressure span {
+  font-size: 1.3rem;
+  color: #15b1e0;
+}
+.humidity {
+  margin: 0;
+  padding: 0;
+}
+.humidity p {
+  color: #293251;
+  text-align: center;
+  font-size: 2.2em;
+}
+.humidity span {
+  font-size: 1.1rem;
+  color: #15e052;
+}
+.wind-speed {
+  margin: 0;
+  padding: 0;
+}
+.wind-speed p {
+  color: #293251;
+  text-align: center;
+  font-size: 2.3rem;
+}
+.wind-speed span {
+  font-size: 1.2rem;
+  color: rgb(255, 153, 0);
+}
