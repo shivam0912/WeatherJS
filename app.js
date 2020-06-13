@@ -7,7 +7,6 @@ const windPressureElement = document.querySelector(".wind-pressure p");
 const timeElement = document.querySelector(".time-zone p");
 const windSpeedElement = document.querySelector(".wind-speed p");
 const inputElement = document.querySelector("#inputName");
-const buttonElement = document.querySelector("#btn");
 
 // Create an object for data
 
@@ -24,17 +23,6 @@ function showError(error) {
   notificationElement.style.display = "block";
   notificationElement.innerHTML = `<p> ${error.message} </p>`;
 }
-
-function searchBar(e) {
-  if (inputElement.value == "") {
-    window.alert("Please enter city name");
-  } else {
-    const cityName = inputElement.value;
-    getWeather(cityName);
-  }
-}
-
-buttonElement.addEventListener("click", searchBar);
 
 function inputPress(e) {
   if (inputElement.value == " ") {

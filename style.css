@@ -28,17 +28,8 @@ body {
   font-family: cursive;
   color: black;
 }
-.search-btn {
-  padding: 14px 16px;
-  margin-left: 10px;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  background-color: #fff;
-  cursor: pointer;
-}
 
-input,
-button:focus {
+input:focus {
   outline: none;
 }
 
