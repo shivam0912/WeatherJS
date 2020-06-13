@@ -3,37 +3,44 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" class="input-name" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Weather</title>
 </head>
 
 <body>
 
-    <div class="container">
+    <a href="https://www.weatherapi.com/" title="Free Weather API"><img
+            src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com"
+            border="0"></a>
+    <div class="container col-1">
+        <div class="search-bar">
+            <input type="text" placeholder="Search City" id="inputName">
+            <Button id="btn" class="search-btn" type="submit"><i class="fa fa-search"></i></Button>
+        </div>
         <div class="app-title">
             <p>Weather</p>
         </div>
         <div class="notification"></div>
-        <div class="weather-container">
-            <div class="weather-icon"><img src="./icon/unknown.png" alt="sun"></div>
+
+        <div class="weather-container col-2">
+            <div class="weather-icon"><img src="./icon/undefined.png" alt="sun"></div>
             <div class="temperature-value">
                 <p>-°<span>C</span></p>
             </div>
             <div class="temperature-description">
                 <p> ~ </p>
             </div>
-
-
-            <div class="humidity">
-
-                <p> <span>humidity</span> ~ </p>
+            <div class="time-zone">
+                <p> <span>time : </span> ~ </p>
             </div>
             <div class="wind-speed">
-                <p> ~ <span>km/h</span> </p>
+                <p> <span>wind speed ~ </span>~ <span>km/h</span> </p>
             </div>
             <div class="wind-pressure">
-                <p> ~ <span>hPa</span></p>
+                <p> <span>pressure</span>~ <span>hPa</span></p>
             </div>
             <div class="location">
                 <p> - </p>

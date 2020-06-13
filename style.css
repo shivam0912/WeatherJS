@@ -1,6 +1,7 @@
 body {
   background-color: rgba(0, 255, 34, 0.192);
 }
+
 .container {
   width: 500px;
   background-color: #fff;
@@ -10,6 +11,37 @@ body {
   margin-top: 100px;
   padding-bottom: 60px;
 }
+.search-bar {
+  width: 500px;
+  height: 60px;
+  margin: 5px;
+}
+.search-bar input {
+  width: 350px;
+  padding: 9px 15px;
+  margin-top: 10px;
+  border: 1px solid #777;
+  border-radius: 8px;
+  margin-left: 10px;
+  letter-spacing: 1.5px;
+  font-size: 1.1rem;
+  font-family: cursive;
+  color: black;
+}
+.search-btn {
+  padding: 14px 16px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+input,
+button:focus {
+  outline: none;
+}
+
 .app-title {
   background-color: rgba(255, 187, 0, 0.548);
   width: 500px;
@@ -36,7 +68,7 @@ body {
 }
 .weather-container {
   width: 500px;
-  height: 500px;
+  height: 550px;
   background-color: white;
 }
 .weather-icon {
@@ -95,16 +127,16 @@ img {
   font-size: 1.3rem;
   color: #15b1e0;
 }
-.humidity {
+.time-zone {
   margin: 0;
   padding: 0;
 }
-.humidity p {
+.time-zone p {
   color: #293251;
   text-align: center;
-  font-size: 2.2em;
+  font-size: 2em;
 }
-.humidity span {
+.time-zone span {
   font-size: 1.1rem;
   color: #15e052;
 }

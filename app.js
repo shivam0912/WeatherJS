@@ -4,66 +4,57 @@ const tempElement = document.querySelector(".temperature-value p");
 const descElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location p");
 const windPressureElement = document.querySelector(".wind-pressure p");
-const humidityElement = document.querySelector(".humidity p");
+const timeElement = document.querySelector(".time-zone p");
 const windSpeedElement = document.querySelector(".wind-speed p");
+const inputElement = document.querySelector("#inputName");
+const buttonElement = document.querySelector("#btn");
 
 // Create an object for data
 
 const weather = {};
-weather.temperature = {
-  unit: "celsius",
+const weatherChange = {};
+
+weatherChange.temperature = {
+  unit: "c",
 };
-
-const KELVIN = 273;
-
 // API key
-const key = "7294234a162e0681119c9c32dee10ebe";
+const key = "0a5084f9840148ebbc943335201306";
 
-// Check browser support geolocation or not
-if ("geolocation" in navigator) {
-  navigator.geolocation.getCurrentPosition(setPosition, showError);
-} else {
-  notificationElement.style.display = "block";
-  notificationElement.innerHTML = "<p>Browser Doesn't Support Geolocation.</p>";
-}
-
-// Set User Position
-function setPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-
-  getWeather(latitude, longitude);
-}
-/* // Get the time
-function getTime() {
-  var d = new Date();
-  var n = d.toLocaleTimeString();
-  console.log(n);
-}
- */
-// If any problem show error
 function showError(error) {
   notificationElement.style.display = "block";
   notificationElement.innerHTML = `<p> ${error.message} </p>`;
 }
-// get Weather
-function getWeather(latitude, longitude) {
-  let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
+function searchBar(e) {
+  if (inputElement.value == "") {
+    window.alert("Please enter city name");
+  } else {
+    const cityName = inputElement.value;
+
+    getWeather(cityName);
+  }
+}
+buttonElement.addEventListener("click", searchBar);
+// get Weather
+function getWeather(cityName) {
+  let api = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${cityName}`;
+  console.log(api);
   fetch(api)
     .then(function (response) {
       let data = response.json();
       return data;
     })
     .then(function (data) {
-      weather.temperature.value = Math.floor(data.main.temp - KELVIN);
-      weather.description = data.weather[0].description;
-      weather.iconId = data.weather[0].icon;
-      weather.city = data.name;
-      weather.country = data.sys.country;
-      weather.pressure = data.main.pressure;
-      weather.humidity = data.main.humidity;
-      weather.speed = Math.floor(data.wind.speed * 3.6);
+      weather.temperature = data.current.temp_c;
+      weather.description = data.current.condition.text;
+      weather.iconId = data.current.condition.icon;
+      weather.city = data.location.name;
+      weather.state = data.location.region;
+      weather.country = data.location.country;
+      weather.pressure = data.current.pressure_mb;
+      weather.time = data.location.localtime;
+      weather.speed = data.current.wind_kph;
+      weather.farhenheit = data.current.temp_f;
     })
     .then(function () {
       displayWeather();
@@ -72,38 +63,30 @@ function getWeather(latitude, longitude) {
 
 // Display data
 function displayWeather() {
-  iconElement.innerHTML = `<img src="icon/${weather.iconId}.png" />`;
+  iconElement.innerHTML = `<img src='${weather.iconId}' alt="Weather" border="0"></a>`;
 
-  tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+  tempElement.innerHTML = `${weather.temperature}°<span>C</span>`;
 
   descElement.innerHTML = weather.description;
 
-  locationElement.innerHTML = `${weather.city} , ${weather.country}`;
+  locationElement.innerHTML = `${weather.city}, ${weather.state} , ${weather.country}`;
 
-  windPressureElement.innerHTML = ` ${weather.pressure} <span>hPa</span>`;
+  windPressureElement.innerHTML = ` <span>pressure</span> ${weather.pressure} <span>hPa</span>`;
 
-  humidityElement.innerHTML = `<span>humidity</span> ${weather.humidity}%`;
+  timeElement.innerHTML = ` ${weather.time}`;
 
-  windSpeedElement.innerHTML = `${weather.speed} <span>km/h</span>`;
-}
-
-function celesuiusToFahrenheit(temperature) {
-  return (temperature * 9) / 5 + 32;
+  windSpeedElement.innerHTML = `<span>wind speed</span> ${weather.speed}<span>km/h</span>`;
 }
 
 // Switch Celesius to Fahrenheit
+
 tempElement.addEventListener("click", function () {
-  if (weather.temperature.value === undefined) return;
-
-  if (weather.temperature.unit === "celsius") {
-    let farhenheit = celesuiusToFahrenheit(weather.temperature.value);
-
-    //round the number
-    farhenheit = Math.floor(farhenheit);
-    tempElement.innerHTML = `${farhenheit}°<span>F</span>`;
-    weather.temperature.unit = "fahrenheit";
+  if (weather.temperature === undefined) return;
+  if (weatherChange.temperature.unit === "c") {
+    tempElement.innerHTML = `${weather.farhenheit}°<span>F</span>`;
+    weatherChange.temperature.unit = "f";
   } else {
-    tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
-    weather.temperature.unit = "celsius";
+    tempElement.innerHTML = `${weather.temperature}°<span>C</span>`;
+    weatherChange.temperature.unit = "c";
   }
 });
