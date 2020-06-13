@@ -30,11 +30,22 @@ function searchBar(e) {
     window.alert("Please enter city name");
   } else {
     const cityName = inputElement.value;
-
     getWeather(cityName);
   }
 }
+
 buttonElement.addEventListener("click", searchBar);
+
+function inputPress(e) {
+  if (inputElement.value == " ") {
+    window.alert("Please enter city name");
+  } else {
+    const cityName = inputElement.value;
+    getWeather(cityName);
+  }
+}
+inputElement.addEventListener("keypress", inputPress);
+
 // get Weather
 function getWeather(cityName) {
   let api = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${cityName}`;
