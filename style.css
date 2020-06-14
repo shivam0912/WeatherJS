@@ -63,7 +63,7 @@ input:focus {
 }
 .weather-icon {
   width: 500px;
-  height: 30px;
+  height: 40px;
 }
 .weather-icon img {
   display: block;
@@ -76,8 +76,8 @@ input:focus {
 }
 .temperature-value p {
   text-align: center;
-
   font-size: 3.5rem;
+
   cursor: pointer;
   color: #293251;
 }
