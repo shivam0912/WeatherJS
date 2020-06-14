@@ -8,8 +8,7 @@ body {
   display: block;
   margin: 0 auto;
   border-radius: 10px;
-  margin-top: 100px;
-  padding-bottom: 60px;
+  margin-top: 30px;
 }
 .search-bar {
   width: 500px;
@@ -64,23 +63,20 @@ input:focus {
 }
 .weather-icon {
   width: 500px;
-  height: 128px;
+  height: 30px;
 }
 .weather-icon img {
   display: block;
   margin: 0 auto;
 }
-img {
-  width: 120px;
-}
+
 .temperature-value {
   width: 500px;
   height: 60px;
 }
 .temperature-value p {
   text-align: center;
-  padding: 0;
-  margin: 0;
+
   font-size: 3.5rem;
   cursor: pointer;
   color: #293251;
@@ -97,31 +93,6 @@ img {
   text-align: center;
   font-size: 2rem;
 }
-
-.location {
-  margin: 0;
-  padding: 0;
-}
-.location p {
-  color: #f70a0a;
-  text-align: center;
-  font-size: 2em;
-}
-.wind-pressure p {
-  margin: 0;
-  padding: 0;
-
-  text-align: center;
-  font-size: 2em;
-}
-.wind-pressure span {
-  font-size: 1.3rem;
-  color: #15b1e0;
-}
-.time-zone {
-  margin: 0;
-  padding: 0;
-}
 .time-zone p {
   color: #293251;
   text-align: center;
@@ -131,10 +102,6 @@ img {
   font-size: 1.1rem;
   color: #15e052;
 }
-.wind-speed {
-  margin: 0;
-  padding: 0;
-}
 .wind-speed p {
   color: #293251;
   text-align: center;
@@ -143,4 +110,49 @@ img {
 .wind-speed span {
   font-size: 1.2rem;
   color: rgb(255, 153, 0);
+}
+.wind-pressure p {
+  text-align: center;
+  font-size: 2em;
+}
+.wind-pressure span {
+  font-size: 1.3rem;
+  color: #15b1e0;
+}
+.location p {
+  color: #f70a0a;
+  text-align: center;
+  font-size: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: auto;
+  }
+  .container,
+  .search-bar,
+  .app-title,
+  .weather-icon,
+  .temperature-value {
+    width: 22rem;
+  }
+
+  .weather-container,
+  .search-bar input {
+    width: 18rem;
+  }
+  .weather-container {
+    height: 30rem;
+  }
+  .temperature-description p {
+    margin-left: 50px;
+    font-size: 1.5rem;
+  }
+  .time-zone p,
+  .wind-speed p,
+  .wind-pressure p,
+  .location p {
+    margin-left: 50px;
+    font-size: 1.5rem;
+  }
 }
